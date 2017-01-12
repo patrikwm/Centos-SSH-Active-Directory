@@ -1,0 +1,11 @@
+
+module my-sssd 1.0;
+
+require {
+    type sssd_t;
+    type sssd_conf_t;
+    class dir read;
+}
+
+#============= sssd_t ==============
+allow sssd_t sssd_conf_t:dir read;
