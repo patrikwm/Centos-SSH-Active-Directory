@@ -1,0 +1,2 @@
+#!/bin/sh
+ldapsearch -h dc01.internalab.com -xb "dc=internalab,dc=com" '(sAMAccountName='"${1%@*}"')' -D linux_bind@internalab.com -w MEGA_safe_PASSWORD_1 'sshPublicKey' | sed -n '/^ /{H;d};/sshPublicKey:/x;$g;s/\n *//g;s/sshPublicKey: //gp'
